@@ -1,0 +1,43 @@
+🛑For Add data
+//code
+-- Insert into Authors
+INSERT INTO Authors (Name, Bio) VALUES ('J.K. Rowling', 'British author of Harry Potter series');
+INSERT INTO Authors (Name, Bio) VALUES ('George Orwell', 'Author of 1984 and Animal Farm');
+
+-- Insert into Categories
+INSERT INTO Categories (CategoryName) VALUES ('Fantasy');
+INSERT INTO Categories (CategoryName) VALUES ('Dystopian');
+
+-- Insert into Books
+INSERT INTO Books (Title, ISBN, PublishedYear, CategoryID) 
+VALUES ('Harry Potter and the Sorcerer''s Stone', '9780439708180', 1997, 1);
+
+INSERT INTO Books (Title, ISBN, PublishedYear, CategoryID) 
+VALUES ('1984', '9780451524935', 1949, 2);
+
+-- Insert into BookAuthors
+INSERT INTO BookAuthors (BookID, AuthorID) VALUES (1, 1);  -- J.K. Rowling -> Harry Potter
+INSERT INTO BookAuthors (BookID, AuthorID) VALUES (2, 2);  -- George Orwell -> 1984
+
+-- Insert into Members
+INSERT INTO Members (Name, Email, JoinDate) VALUES ('Alice Johnson', 'alice@example.com', '2024-06-01');
+INSERT INTO Members (Name, Email, JoinDate) VALUES ('Bob Smith', 'bob@example.com', '2024-06-02');
+
+-- Insert into Loans
+INSERT INTO Loans (BookID, MemberID, LoanDate, ReturnDate) 
+VALUES (1, 1, '2024-06-15', NULL);
+
+🛑Handle missing values using NULL or default
+//code
+INSERT INTO Books (Title, PublishedYear, CategoryID) 
+VALUES ('Unknown Book', 2023, 1);  -- ISBN is missing, defaults to NULL
+
+🛑Use UPDATE and DELETE with WHERE condition
+//code
+
+UPDATE Loans 
+SET ReturnDate = '2024-06-25' 
+WHERE LoanID = 1;
+
+DELETE FROM Members 
+WHERE MemberID = 2;
